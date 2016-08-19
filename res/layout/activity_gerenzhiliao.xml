@@ -79,7 +79,11 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
             android:padding="10dp"
+<<<<<<< HEAD
             android:text="等待戈多"
+=======
+            android:text="斯蒂芬-库里"
+>>>>>>> origin/develop
             android:textSize="15sp" />
 
         <ImageView
@@ -145,7 +149,11 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
             android:padding="10dp"
+<<<<<<< HEAD
             android:text="斯蒂芬-库里"
+=======
+            android:text="等待戈多"
+>>>>>>> origin/develop
             android:textSize="15sp" />
     </RelativeLayout>
 

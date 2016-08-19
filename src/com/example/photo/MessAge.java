@@ -23,4 +23,12 @@ public class MessAge extends Activity{//消息通知
 		}
 	});	
 	}
+<<<<<<< HEAD
+=======
+  
+
+
+
+
+>>>>>>> origin/develop
 }

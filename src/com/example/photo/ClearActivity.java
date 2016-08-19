@@ -5,10 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
 
 
 import android.app.Activity;
 import android.content.Context;
+=======
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+>>>>>>> origin/develop
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +24,10 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+<<<<<<< HEAD
+=======
+import android.widget.TextView;
+>>>>>>> origin/develop
 
 public class ClearActivity extends Activity {
 	ListView listview;
@@ -40,7 +52,12 @@ public class ClearActivity extends Activity {
 		simpleAdapter = new SimpleAdapter(ClearActivity.this, listData,
 				R.layout.activity_clear_midle, keys, viewId);
 		listview.setAdapter(simpleAdapter);// 调用适配器
+<<<<<<< HEAD
 		getData();// 获取数据
+=======
+		getData();
+		CleanLaJi();// 获取数据
+>>>>>>> origin/develop
 	}
 	OnClickListener l=new OnClickListener(){
 		public void onClick(View v) {
@@ -58,4 +75,37 @@ public class ClearActivity extends Activity {
 			listData.add(map);
 		}
 	}
+<<<<<<< HEAD
+=======
+public void CleanLaJi(){
+	
+TextView clean=(TextView)findViewById(R.id.qinglilaji);
+clean.setOnClickListener(new OnClickListener() {
+	
+	@Override
+	public void onClick(View v) {
+		AlertDialog alert = new AlertDialog.Builder(ClearActivity.this).create();
+		alert.setTitle("是否清理选中垃圾文件？");
+		alert.setIcon(R.drawable.apptupian);
+		alert.setButton(DialogInterface.BUTTON_NEGATIVE, "NO",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,int which) {
+					}
+				});
+		alert.setButton(DialogInterface.BUTTON_POSITIVE, "YES",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,int which) {
+						Intent intent=new Intent(ClearActivity.this,ClearActivity.class);
+						startActivity(intent);
+						finish();
+					}
+				});
+		alert.show();
+		
+	}
+});
+}
+
+
+>>>>>>> origin/develop
 }
