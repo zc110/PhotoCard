@@ -22,12 +22,9 @@ public class QianmingActivity extends Activity{
 		image_fanhui.setOnClickListener(l);
 		
 		edittext=(EditText)findViewById(R.id.edittext);
-<<<<<<< HEAD
 		if(getIntent().getExtras()!=null){
 			edittext.setText(getIntent().getExtras().getString("qianming"));
 		}
-=======
->>>>>>> origin/develop
 	}
 	OnClickListener l=new OnClickListener() {
 		public void onClick(View v) {
@@ -37,10 +34,6 @@ public class QianmingActivity extends Activity{
 			  		break;
 			  	case R.id.text_wancheng:
 			  		getData();
-<<<<<<< HEAD
-=======
-			  		
->>>>>>> origin/develop
 			  		break;
 			  	default:
 			  		break;
@@ -49,18 +42,9 @@ public class QianmingActivity extends Activity{
 	};
 	
 	public void getData(){
-<<<<<<< HEAD
-		
 		 Intent intent=new Intent();
 		 intent.putExtra("qianming",edittext.getText().toString());
 		 setResult(RESULT_OK, intent);
 		 finish();
-=======
-		 Intent intent  = new  Intent();
-		 intent.putExtra("qianming",edittext.getText().toString());
-		//setResult(RESULT_OK, intent);
-		startActivity(intent);
-		finish();
->>>>>>> origin/develop
 	}
 }
