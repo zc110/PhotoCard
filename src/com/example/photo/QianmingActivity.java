@@ -22,6 +22,9 @@ public class QianmingActivity extends Activity{
 		image_fanhui.setOnClickListener(l);
 		
 		edittext=(EditText)findViewById(R.id.edittext);
+		if(getIntent().getExtras()!=null){
+			edittext.setText(getIntent().getExtras().getString("qianming"));
+		}
 	}
 	OnClickListener l=new OnClickListener() {
 		public void onClick(View v) {
@@ -39,10 +42,10 @@ public class QianmingActivity extends Activity{
 	};
 	
 	public void getData(){
+		
 		 Intent intent=new Intent();
 		 intent.putExtra("qianming",edittext.getText().toString());
 		 setResult(RESULT_OK, intent);
-		 
 		 finish();
 	}
 }

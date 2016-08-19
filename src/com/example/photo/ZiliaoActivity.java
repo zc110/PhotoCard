@@ -34,12 +34,13 @@ public class ZiliaoActivity extends Activity {
 	
 		view_touxiang = (ImageView) findViewById(R.id.touxiang_imageview);
 		view_touxiang.setOnClickListener(l);
-
+		text_gexing=(TextView)findViewById(R.id.text_gexing);
 		tiaozhuan = (RelativeLayout) findViewById(R.id.tiaozhuan);
 		tiaozhuan.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent(ZiliaoActivity.this,
 						QianmingActivity.class);
+				intent.putExtra("qianming",text_gexing.getText().toString());
 				startActivityForResult(intent, REQUEST_CODE);	
 			}
 		});
@@ -60,9 +61,12 @@ public class ZiliaoActivity extends Activity {
 		});
 	}
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		text_gexing=(TextView)findViewById(R.id.text_gexing);
-		String str=data.getExtras().getString("qianming");
-		text_gexing.setText(str);
+		if(requestCode==1002&&data!=null&&data.getExtras()!=null){
+			
+			String str=data.getExtras().getString("qianming");
+			text_gexing.setText(str);
+			super.onActivityResult(requestCode, resultCode, data);
+		}
 	};
 	OnClickListener l = new OnClickListener() {
 		public void onClick(View v) {
