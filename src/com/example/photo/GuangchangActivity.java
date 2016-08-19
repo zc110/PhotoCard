@@ -1,11 +1,7 @@
 package com.example.photo;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,55 +11,57 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
-public class GuangchangActivity extends Activity{
+public class GuangchangActivity extends Activity {
 	ImageView image;
 	ListView listview;
-	SimpleAdapter simpleAdapter;
-	List<Map<String,Object>> lists=new ArrayList<Map<String,Object>>();
-	String[] keys={"img1","img2"};
-	int[] viewIds={R.id.fuyetu1,R.id.fuyetu2};
+
+	Adapter adapter;
+	ImageView imageView1;
+
+	/* List<Photo> list */;
+	public List<String> URL;
+	public List<String> URL2;
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.guangchang_fuye);
-		listview=(ListView)findViewById(R.id.fuye_guang);
-		image=(ImageView)findViewById(R.id.imageview_guangchang);
+		setContentView(R.layout.sequare_two);
+		listview = (ListView) findViewById(R.id.fuye_guang);
+		getData();
+		image = (ImageView) findViewById(R.id.sequaretwo_imageview);
 		image.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				finish();	
+				finish();
 			}
 		});
-		getData();
-		simpleAdapter =new SimpleAdapter(this,lists,R.layout.guangchang_fuye_2,
-				keys,viewIds);
-		listview.setAdapter(simpleAdapter);
+
 	}
+
 	private void getData() {
-		List<PhotoInfo> list = new ArrayList<PhotoInfo>();
-		LayoutInflater inflater = (LayoutInflater)getSystemService(
-				Context.LAYOUT_INFLATER_SERVICE);
-		View headView = inflater.inflate(R.layout.activity_guangchang_head, null);
+
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View headView = inflater.inflate(R.layout.sequare_two_head, null);
 		listview.addHeaderView(headView);
-		
-		Map<String,Object> map=new HashMap<String,Object>();
-		map.put("img1", R.drawable.tu4);
-		map.put("img2", R.drawable.tu3);
-		lists.add(map);
-		
-		map=new HashMap<String,Object>();
-		map.put("img1", R.drawable.tu1);
-		map.put("img2", R.drawable.tu2);
-		lists.add(map);
-		
-		map=new HashMap<String,Object>();
-		map.put("img1", R.drawable.tu3);
-		map.put("img2", R.drawable.tu4);
-		lists.add(map);
-		
-		map=new HashMap<String,Object>();
-		map.put("img1", R.drawable.tu2);
-		map.put("img2", R.drawable.tu1);
-		lists.add(map);
+		URL = new ArrayList<String>();
+		URL2 = new ArrayList<String>();
+		addurl();
+
+		listview = (ListView) findViewById(R.id.fuye_guang);
+		adapter = new Adapter(GuangchangActivity.this, URL, listview);
+
+		listview.setAdapter(adapter);
+
 	}
+
+	public void addurl() {
+		URL.add("http://img2.imgtn.bdimg.com/it/u=1628834492,3393624934&fm=206&gp=0.jpg");
+
+		URL.add("http://img0.imgtn.bdimg.com/it/u=3662244058,51076352&fm=21&gp=0.jpg");
+		URL.add("http://img0.imgtn.bdimg.com/it/u=1974388194,3782981032&fm=21&gp=0.jpg");
+
+		URL.add("http://imgsrc.baidu.com/forum/w%3D580/sign=ae96b9ee5bafa40f3cc6ced59b65038c/87d6277f9e2f0708f55e24dce824b899a801f297.jpg");
+		URL.add("http://img0.imgtn.bdimg.com/it/u=1974388194,3782981032&fm=21&gp=0.jpg");
+
+	}
+
 }
